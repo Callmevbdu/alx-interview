@@ -1,3 +1,4 @@
+#!/usr/bin/python3
 def canUnlockAll(boxes):
     # Create a set to store the keys we have
     keys = set([0])
