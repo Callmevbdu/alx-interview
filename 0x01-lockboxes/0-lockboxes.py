@@ -18,3 +18,4 @@ def canUnlockAll(boxes):
 
     # Check if all boxes are empty (i.e., all boxes have been opened)
     return all(not box for box in boxes)
+
