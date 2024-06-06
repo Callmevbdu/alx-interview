@@ -1,4 +1,7 @@
 #!/usr/bin/python3
+"""
+a method that determines if all the boxes can be opened.
+"""
 def canUnlockAll(boxes):
     # Create a set to store the keys we have
     keys = set([0])
