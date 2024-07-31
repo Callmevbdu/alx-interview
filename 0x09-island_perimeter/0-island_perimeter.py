@@ -13,6 +13,8 @@ island described in grid:
     - The island doesn’t have “lakes” (water inside that isn’t connected to the
     water surrounding the island).
 """
+
+
 def island_perimeter(grid):
     perimeter = 0
     for i in range(len(grid)):
