@@ -35,6 +35,7 @@ def isWinner(x, nums):
     - Result: Ben has the most wins
     """
     def is_prime(num):
+        """ is_prime function """
         if num < 2:
             return False
         for i in range(2, int(num**0.5) + 1):
@@ -43,6 +44,7 @@ def isWinner(x, nums):
         return True
 
     def get_primes(n):
+        """ get_primes function """
         primes = []
         for i in range(2, n + 1):
             if is_prime(i):
@@ -50,6 +52,7 @@ def isWinner(x, nums):
         return primes
 
     def play_game(n):
+        """ play_game function """
         primes = get_primes(n)
         total_rounds = len(primes)
         if total_rounds % 2 == 0:
