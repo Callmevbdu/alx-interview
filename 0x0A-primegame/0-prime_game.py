@@ -34,39 +34,21 @@ def isWinner(x, nums):
     * Ben wins because there are no prime numbers for Maria to choose
     - Result: Ben has the most wins
     """
-    def is_prime(num):
-        """ is_prime function """
-        if num < 2:
-            return False
-        for i in range(2, int(num**0.5) + 1):
-            if num % i == 0:
-                return False
-        return True
-
-    def get_primes(n):
-        """ get_primes function """
-        primes = []
-        for i in range(2, n + 1):
-            if is_prime(i):
-                primes.append(i)
-        return primes
-
-    def play_game(n):
-        """ play_game function """
-        primes = get_primes(n)
-        total_rounds = len(primes)
-        if total_rounds % 2 == 0:
-            return "Ben"
-        else:
-            return "Maria"
-
-    winners = [play_game(num) for num in nums]
-    maria_wins = winners.count("Maria")
-    ben_wins = winners.count("Ben")
-
-    if maria_wins > ben_wins:
-        return "Maria"
-    elif ben_wins > maria_wins:
-        return "Ben"
-    else:
+    if x < 1 or not nums:
         return None
+    marias_wins, bens_wins = 0, 0
+    n = max(nums)
+    primes = [True for _ in range(1, n + 1, 1)]
+    primes[0] = False
+    for i, is_prime in enumerate(primes, 1):
+        if i == 1 or not is_prime:
+            continue
+        for j in range(i + i, n + 1, i):
+            primes[j - 1] = False
+    for _, n in zip(range(x), nums):
+        primes_count = len(list(filter(lambda x: x, primes[0: n])))
+        bens_wins += primes_count % 2 == 0
+        marias_wins += primes_count % 2 == 1
+    if marias_wins == bens_wins:
+        return None
+    return 'Maria' if marias_wins > bens_wins else 'Ben'
