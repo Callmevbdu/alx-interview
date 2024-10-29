@@ -13,6 +13,13 @@ least significant bits of each integer
 
 
 def validUTF8(data):
+    """
+    Determines if a given data set represents a valid UTF-8 encoding
+    Args:
+        data: List of integers representing bytes of data
+    Returns:
+        True if data is a valid UTF-8 encoding, else False
+    """
     num_bytes = 0
 
     mask1 = 1 << 7
